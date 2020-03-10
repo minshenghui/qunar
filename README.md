@@ -1,8 +1,11 @@
-# qunar
-## 去哪儿项目练习
+# qunar 去哪儿项目练习
 
-#### 2020-3-10 22:56:04
+### 2020-3-10 22:56:04
 1、项目初始化
+
+### 2020-3-11 00:06:13
+1、安装 stylus 和 stylus-loader 依赖
+2、引入 border.css 和 reset.css
 
 ## Project setup
 ```
