@@ -1,15 +1,24 @@
 <template>
   <div class="icons">
-    <swiper>
-      <swiper-slide>
-        <div class="icon" v-for="item in iconsList" :key="item.id">
+    <swiper :options="swiperOption">
+      <swiper-slide
+        v-for="(page, index) in pages"
+        :key="index"
+      >
+        <div
+          class="icon"
+          v-for="item in page"
+          :key="item.id"
+        >
           <div class="icon-content">
-            <img class="icon-img" :src="item.iconImg" />
+            <img
+              class="icon-img"
+              :src="item.iconImg"
+            />
             <p class="icon-desc">{{ item.desc }}</p>
           </div>
         </div>
       </swiper-slide>
-      <div class="swiper-pagination" slot="pagination"></div>
     </swiper>
   </div>
 </template>
@@ -23,13 +32,13 @@ export default {
           id: 1,
           iconImg:
             "https://imgs.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png",
-          desc: "景点门票"
+          desc: "景点门票223s3"
         },
         {
           id: 2,
           iconImg:
             "https://imgs.qunarzz.com/piao/fusion/1803/87/20656da0ac042002.png",
-          desc: "天门山公园"
+          desc: "天门山公园333"
         },
         {
           id: 3,
@@ -73,12 +82,34 @@ export default {
             "https://imgs.qunarzz.com/piao/fusion/1803/b8/c5dcdb58deec2402.png",
           desc: "凤凰古城334"
         }
-      ]
+      ],
+      swiperOption: {
+        autoplay: false
+      }
     };
+  },
+  computed: {
+    pages() {
+      const pages = [];
+      // for (let i = 0;i < this.iconsList.length;i++) {
+      //   let page = pages[Math.floor(i / 3)];
+      //   if (!page) {
+      //     pages = []
+      //   }
+      //   page.push(this.iconsList[i])
+      // }
+      this.iconsList.forEach((item, index) => {
+        const page = Math.floor(index / 8);
+        !pages[page] ? pages[page] = [] : ''
+        pages[page].push(item)
+      })
+      return pages
+    }
   }
-};
+}
 </script>
 <style lang="stylus" scoped>
+@import '~styles/mintext.styl'
 @import '~styles/varibles.styl'
 .icons >>> .swiper-container
   margin-top: 0.1rem
@@ -109,4 +140,5 @@ export default {
         height: 0.44rem
         line-height: 0.44rem
         text-align: center
+        ellipsis()
 </style>
