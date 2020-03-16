@@ -7,6 +7,15 @@
 1、安装 stylus 和 stylus-loader 依赖
 2、引入 border.css 和 reset.css
 
+### 2020-3-12 23:14:28
+1、完成 Home-Header 组件
+
+### 2020-3-16 22:24:17
+1、完成 Home-Swiper 组件
+
+### 2020-3-16 23:33:24
+1、完成 Home-Icons 组件
+
 ## Project setup
 ```
 npm install
