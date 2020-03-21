@@ -8,5 +8,13 @@ module.exports = {
     config.resolve.alias
       .set('@', resolve('src'))
       .set('styles', resolve('src/assets/styles'))
-  }
+  },
+  // proxyTable: {
+  //   '/api': {
+  //     target: 'http://locahost:8080',
+  //     pathRewrite: {
+  //       '^/api': '/public/api'
+  //     }
+  //   }
+  // }
 }
