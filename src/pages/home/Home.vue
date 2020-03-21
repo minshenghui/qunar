@@ -1,10 +1,10 @@
 <template>
   <div>
     <home-header :city="city"></home-header>
-    <home-swiper></home-swiper>
-    <home-icons></home-icons>
-    <home-recommend></home-recommend>
-    <home-weekend></home-weekend>
+    <home-swiper :list="swiperList"></home-swiper>
+    <home-icons :list="iconList"></home-icons>
+    <home-recommend :list="recommendList"></home-recommend>
+    <home-weekend :list="weekendList"></home-weekend>
   </div>
 </template>
 <script>
@@ -25,7 +25,11 @@ export default {
   },
   data () {
     return {
-      city: ''
+      city: '',
+      swiperList: [],
+      iconList: [],
+      recommendList: [],
+      weekendList: []
     }
   },
   methods: {
@@ -36,11 +40,15 @@ export default {
     successGetHomeInfo(res) {
       const data = res.data.data;
       if(res.data.ret && data) {
-        this.city = data.city
+        this.city = data.city;
+        this.swiperList = data.swiperList;
+        this.iconList = data.iconList;
+        this.recommendList = data.recommendList;
+        this.weekendList = data.weekendList
       }
       
-      console.log(data)
-      console.log(this.city)
+      // console.log(data)
+      // console.log(this.city)
     }
   },
   mounted() {

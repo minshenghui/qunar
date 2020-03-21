@@ -14,31 +14,8 @@
 <script>
 export default {
   name: "HomeRecommend",
-  data() {
-    return {
-      list: [
-        {
-          id: 1,
-          title: '亚特兰斯蒂斯',
-          imgUrl: 'http://tr-osdcp.qunarzz.com/tr-osd-tr-manager/img/7d9b233c71cad13ded0013f9c9cec635.jpg',
-          desc: '阿六点十分阿斯蒂芬阿斯蒂芬手打发大水范德萨发大发大水'
-        },
-        {
-          id: 2,
-          title: "亚特兰斯蒂斯",
-          imgUrl:
-            "http://tr-osdcp.qunarzz.com/tr-osd-tr-manager/img/7d9b233c71cad13ded0013f9c9cec635.jpg",
-          desc: "阿六点十分阿斯蒂芬阿斯蒂芬手打发大水范德萨发大发大水"
-        },
-        {
-          id: 3,
-          title: "亚特兰斯蒂斯",
-          imgUrl:
-            "http://tr-osdcp.qunarzz.com/tr-osd-tr-manager/img/7d9b233c71cad13ded0013f9c9cec635.jpg",
-          desc: "阿六点十分阿斯蒂芬阿斯蒂芬手打发大水范德萨发大发大水"
-        }
-      ]
-    };
+  props: {
+    list: Array
   }
 };
 </script>
@@ -70,10 +47,10 @@ export default {
       line-height: 0.36rem
       ellipsis()
     .recommend-row-more
-      font-size: 0.28rem
+      font-size: 0.24rem
       background: #ff7f00
       color: #fff
       padding: 0.05rem
-      margin-top: 0.1rem
+      margin: 0.1rem
       border-radius: 0.05rem
 </style>
