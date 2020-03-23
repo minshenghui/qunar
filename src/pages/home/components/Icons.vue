@@ -39,13 +39,6 @@ export default {
   computed: {
     pages() {
       const pages = [];
-      // for (let i = 0;i < this.iconsList.length;i++) {
-      //   let page = pages[Math.floor(i / 3)];
-      //   if (!page) {
-      //     pages = []
-      //   }
-      //   page.push(this.iconsList[i])
-      // }
       this.list.forEach((item, index) => {
         const page = Math.floor(index / 8);
         !pages[page] ? pages[page] = [] : ''

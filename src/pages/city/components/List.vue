@@ -1,5 +1,8 @@
 <template>
-  <div class="city-list" ref="wrapper">
+  <div
+    class="city-list"
+    ref="wrapper"
+  >
     <div>
       <div class="list-area">
         <div class="list-title border-topbottom">
@@ -14,22 +17,25 @@
           热门城市
         </div>
         <div class="hot-citys">
-          <span class="city-item">长沙</span>
-          <span class="city-item">长沙</span>
-          <span class="city-item">西双版纳</span>
-          <span class="city-item">长沙</span>
+          <span
+            class="city-item"
+            v-for="item in hotCities"
+            :key="item.id"
+          >{{ item.name }}</span>
         </div>
       </div>
-      <div class="list-area">
-        <div class="list-title border-topbottom">
-          A
-        </div>
+      <div
+        class="list-area"
+        v-for="(item, key) in cities"
+        :key="key"
+      >
+        <div class="list-title border-topbottom">{{ key }}</div>
         <ul
           class="list-item"
-          v-for="item in list"
-          :key="item.id"
+          v-for="cityItem in item"
+          :key="cityItem.id"
         >
-          <li class="border-bottom">巴基斯坦</li>
+          <li class="border-bottom">{{ cityItem.name }}</li>
         </ul>
       </div>
     </div>
@@ -39,13 +45,40 @@
 import Bscroll from 'better-scroll'
 export default {
   name: "CityList",
-  data() {
-    return {
-      list: [1, 2, 3, 4, 5, 123, 12, 312, 312, 312, 3, 123, 123, 12, 312]
+  props: ['hotCities', 'cities'],
+  computed: {
+    letters() {
+      const letters = [];
+      for (let i in this.cities) {
+        letters.push(i)
+      }
+      for(let i = 0;i < this.cities.length;i++) {
+          console.log(this.cities)
+        // this.cities[i].forEach((item) => {
+        //   console.log(item)
+        //   console.log(item)
+        //   cityList.push(item)
+        // })
+      }
+      return letters
+    },
+  },
+  methods: {
+    cityList() {
+      const cityList = [];
+      for(let i = 0;i < this.cities.length;i++) {
+          console.log(this.cities)
+        // this.cities[i].forEach((item) => {
+        //   console.log(item)
+        //   console.log(item)
+        //   cityList.push(item)
+        // })
+      }
     }
   },
   mounted() {
-    this.scroll = new Bscroll(this.$refs.wrapper)
+    this.scroll = new Bscroll(this.$refs.wrapper);
+    this.cityList()
   }
 };
 </script>
@@ -87,5 +120,5 @@ export default {
     padding: 0.1rem
     text-align: center
     border-radius: 0.1rem
-    border: .02rem solid #eee
+    border: 0.02rem solid #eee
 </style>
