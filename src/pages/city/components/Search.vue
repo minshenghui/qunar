@@ -1,6 +1,10 @@
 <template>
   <div class="city-search">
-    <input class="search-input" placeholder="输入城市名或者拼音" type="text" />
+    <input
+      class="search-input"
+      placeholder="输入城市名或者拼音"
+      type="text"
+    />
   </div>
 </template>
 <script>
@@ -11,15 +15,16 @@ export default {
 <style lang="stylus" scoped>
 @import '~styles/varibles.styl'
 .city-search
-  margin-top: -1px
+  // margin-top: -1px
   padding: 0.1rem
   height: 0.72rem
   background: $bgColor
   .search-input
-    margin: 0 auto
-    width: 95%
-    display: block
+    width: 96%
     color: #666
+    font-size: 0.26rem
+    margin: 0 auto
+    display: block
     height: 0.44rem
     padding: 0.1rem
     text-align: center
