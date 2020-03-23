@@ -1,30 +1,17 @@
 <template>
-  <div class="city-header">
-    <router-link to="/">
-      <span class="iconfont back-icon">&#xe601;</span>
-    </router-link>
-    <span class="city-title">选择城市</span>
+  <div>
+    <city-header></city-header>
+    <city-search></city-search>
   </div>
 </template>
 <script>
+import CityHeader from "./components/Header"
+import CitySearch from "./components/Search"
 export default {
-  name: "City"
-};
+  name: "City",
+  components: {
+    CityHeader,
+    CitySearch
+  }
+}
 </script>
-<style lang="stylus" scoped>
-@import '~styles/varibles.styl'
-.city-header
-  color: #fff
-  text-align: center
-  background: $bgColor
-  height: $headerHeight
-  line-height: $headerHeight
-  .back-icon
-    color: #fff
-    float: left
-    font-size: 0.4rem
-    margin-left: .1rem
-  .city-title
-    color: #fff
-    font-size: .36rem
-</style>
