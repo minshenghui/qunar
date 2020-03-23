@@ -18,6 +18,11 @@
 export default {
   name: "HomeHeader",
   props: ['city'],
+  data() {
+    return {
+
+    }
+  },
   porps: {
     city: String
   }
@@ -27,7 +32,7 @@ export default {
 @import '~styles/varibles.styl'
 .header
   display: flex
-  line-height: 0.86rem
+  line-height: $headerHeight
   background: $bgColor
   .header-back
     width: 0.64rem
