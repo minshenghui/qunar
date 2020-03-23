@@ -7,9 +7,11 @@
       <span class="iconfont">&#xe600;</span>
       输入城市/景点/游玩主题
     </div>
-    <div class="header-select">
-      {{ city }}<span class="iconfont arrow-icon">&#xe64a;</span>
-    </div>
+    <router-link to="/city">
+      <div class="header-select">
+        {{ city }}<span class="iconfont arrow-icon">&#xe64a;</span>
+      </div>
+    </router-link>
   </div>
 </template>
 <script>
@@ -25,34 +27,31 @@ export default {
 @import '~styles/varibles.styl'
 .header
   display: flex
-  line-height: .86rem
+  line-height: 0.86rem
   background: $bgColor
-
-  .header-back 
-    width: .64rem
+  .header-back
+    width: 0.64rem
     float: left
     color: #fff
     text-align: center
     .back-icon
-      font-size: .4rem
-
+      font-size: 0.4rem
   .header-search
     flex: 1
-    height: .64rem
-    line-height: .64rem
-    border-radius: .1rem
+    height: 0.64rem
+    line-height: 0.64rem
+    border-radius: 0.1rem
     background: #fff
-    margin: .12rem 0 0 .2rem
-    padding-left: .2rem
+    margin: 0.12rem 0 0 0.2rem
+    padding-left: 0.2rem
     color: #ccc
-
   .header-select
     min-width: 1.04rem
-    padding: 0 .1rem
+    padding: 0 0.1rem
     float: right
     color: #fff
     text-align: center
     .arrow-icon
-      font-size: .24rem
-      margin-left: .05rem
+      font-size: 0.24rem
+      margin-left: 0.05rem
 </style>

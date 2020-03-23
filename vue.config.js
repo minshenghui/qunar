@@ -9,6 +9,7 @@ module.exports = {
       .set('@', resolve('src'))
       .set('styles', resolve('src/assets/styles'))
   },
+  runtimeCompiler: true
   // proxyTable: {
   //   '/api': {
   //     target: 'http://locahost:8080',
