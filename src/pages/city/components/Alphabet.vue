@@ -41,11 +41,12 @@ export default {
     },
     handleTouchMove(e) {
       const startY = this.$refs['A'][0].offsetTop
-        // console.log(e.touches[0].clientY)
-        console.log(startY)
-      if(this.letter) {
-        const startY = e;
-        console.log(e)
+      // const touchBoxY = e.touches[0].target.offsetHeight;
+      if (this.touchStatus) {
+        const touchY = e.touches[0].clientY - startY - 79;
+        const index = Math.floor(touchY / 18);
+        index >= 0 && index < this.letters.length ?
+          this.$emit('change', this.letters[index]) : ''
       }
     },
     handleTouchEnd() {
