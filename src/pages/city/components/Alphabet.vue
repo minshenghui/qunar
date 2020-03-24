@@ -5,6 +5,11 @@
         class="item"
         v-for="item in letters"
         :key="item"
+        :ref="item"
+        @click="clickLetter"
+        @touchstart="handleTouchStart"
+        @touchmove="handleTouchMove"
+        @touchend="handleTouchEnd"
       >{{ item }}</li>
     </ul>
   </div>
@@ -13,6 +18,11 @@
 export default {
   name: "CityAlphabet",
   props: ['cities'],
+  data() {
+    return {
+      touchStatus: false
+    }
+  },
   computed: {
     letters() {
       const letters = [];
@@ -21,6 +31,26 @@ export default {
       }
       return letters
     }
+  },
+  methods: {
+    clickLetter(e) {
+      this.$emit('change', e.target.innerText)
+    },
+    handleTouchStart() {
+      this.touchStatus = true
+    },
+    handleTouchMove(e) {
+      const startY = this.$refs['A'][0].offsetTop
+        // console.log(e.touches[0].clientY)
+        console.log(startY)
+      if(this.letter) {
+        const startY = e;
+        console.log(e)
+      }
+    },
+    handleTouchEnd() {
+      this.touchStatus = false
+    },
   }
 };
 </script>
