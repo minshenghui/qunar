@@ -5,7 +5,7 @@
     </div>
     <div class="search-content" ref="search" v-show="keyword">
       <ul>
-        <li class="border-bottom" v-for="item in searchList" :key="item.id">{{ item.name }}</li>
+        <li class="border-bottom" v-for="item in searchList" :key="item.id" @click="handClickCity(item.name)">{{ item.name }}</li>
         <li v-show="noDataList" class="border-bottom">暂无匹配的数据</li>
       </ul>
     </div>
@@ -50,7 +50,15 @@ export default {
     }
   },
   mounted() {
-    this.scroll = new Bscroll(this.$refs.search);
+    this.scroll = new Bscroll(this.$refs.search, {
+      click: true
+    });
+  },
+  methods: {
+    handClickCity(city) {
+      this.$store.state.city= city;
+      this.$router.push('/')
+    }
   }
 };
 </script>

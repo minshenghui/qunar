@@ -9,23 +9,14 @@
     </div>
     <router-link to="/city">
       <div class="header-select">
-        {{ city }}<span class="iconfont arrow-icon">&#xe64a;</span>
+        {{ this.$store.state.city }}<span class="iconfont arrow-icon">&#xe64a;</span>
       </div>
     </router-link>
   </div>
 </template>
 <script>
 export default {
-  name: "HomeHeader",
-  props: ['city'],
-  data() {
-    return {
-
-    }
-  },
-  porps: {
-    city: String
-  }
+  name: "HomeHeader"
 };
 </script>
 <style lang="stylus" scoped>
