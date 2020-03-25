@@ -51,12 +51,13 @@ export default {
           clearTimeout(this.timer);
         }
         this.timer = setTimeout(() => {
+          console.log(this.startY)
           const touchY = e.touches[0].clientY - this.startY - 79;
           const index = Math.floor(touchY / 18);
           if (index >= 0 && index < this.letters.length) {
             this.$emit("change", this.letters[index]);
           }
-        }, 18);
+        }, 16);
       }
     },
     handleTouchEnd() {
