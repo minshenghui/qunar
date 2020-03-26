@@ -1,14 +1,18 @@
 <template>
   <div class="city-header">
-    <router-link to="/">
-      <span class="iconfont back-icon">&#xe601;</span>
-    </router-link>
+    <span class="iconfont back-icon" @click="backPage">&#xe601;</span>
     <span class="city-title">选择城市</span>
   </div>
 </template>
 <script>
 export default {
-  name: "CityHeader"
+  name: "CityHeader",
+  props: ["keyword"],
+  methods: {
+    backPage() {
+      this.$router.push("/")
+    }
+  }
 };
 </script>
 <style lang="stylus" scoped>
@@ -23,8 +27,8 @@ export default {
     color: #fff
     float: left
     font-size: 0.4rem
-    margin-left: .1rem
+    margin-left: 0.1rem
   .city-title
     color: #fff
-    font-size: .36rem
+    font-size: 0.36rem
 </style>

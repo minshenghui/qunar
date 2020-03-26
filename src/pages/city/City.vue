@@ -1,6 +1,6 @@
 <template>
   <div>
-    <city-header></city-header>
+    <city-header :keyword="keyword"></city-header>
     <city-search :cities="citys"></city-search>
     <city-list :hotCities="hotCities" :cities="citys" :letter="letter"></city-list>
     <city-alphabet :cities="citys" @change="handleLetter"></city-alphabet>
@@ -25,7 +25,8 @@ export default {
       hotCities: [],
       alphabet: [],
       citys: [],
-      letter: ""
+      letter: "",
+      keyword: ''
     };
   },
   mounted() {

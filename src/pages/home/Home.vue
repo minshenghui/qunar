@@ -28,7 +28,8 @@ export default {
       swiperList: [],
       iconList: [],
       recommendList: [],
-      weekendList: []
+      weekendList: [],
+      lastCity: ''
     }
   },
   methods: {
@@ -47,7 +48,11 @@ export default {
     }
   },
   mounted() {
-    this.getHomeInfo()
+    this.getHomeInfo();
+    this.lastCity = this.$store.state.city
+  },
+  activated() {
+    this.lastCity !== this.$store.state.city ? this.getHomeInfo() : console.log('城市无变化')
   }
 };
 </script>

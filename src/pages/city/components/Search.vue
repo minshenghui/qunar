@@ -5,7 +5,12 @@
     </div>
     <div class="search-content" ref="search" v-show="keyword">
       <ul>
-        <li class="border-bottom" v-for="item in searchList" :key="item.id" @click="handClickCity(item.name)">{{ item.name }}</li>
+        <li
+          class="border-bottom"
+          v-for="item in searchList"
+          :key="item.id"
+          @click="handClickCity(item.name)"
+        >{{ item.name }}</li>
         <li v-show="noDataList" class="border-bottom">暂无匹配的数据</li>
       </ul>
     </div>
@@ -20,7 +25,8 @@ export default {
     return {
       keyword: "",
       searchList: [],
-      timer: null
+      timer: null,
+      clearKeyword: this.$store.state.clearKeyword
     };
   },
   computed: {
@@ -56,8 +62,8 @@ export default {
   },
   methods: {
     handClickCity(city) {
-      this.$store.state.city= city;
-      this.$router.push('/')
+      this.$store.state.city = city;
+      this.$router.push("/");
     }
   }
 };

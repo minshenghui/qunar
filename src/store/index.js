@@ -5,7 +5,8 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    city: '长沙'
+    city: localStorage.city || '长沙',
+    clearKeyword: false
   },
   actions: {
     changeCity(ctx, city) {
@@ -14,7 +15,8 @@ export default new Vuex.Store({
   },
   mutations: {
     changeCity(state, city) {
-      state.city = city
+      state.city = city;
+      localStorage.city = city
     }
   }
 })
