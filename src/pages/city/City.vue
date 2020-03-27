@@ -1,7 +1,7 @@
 <template>
   <div>
-    <city-header :keyword="keyword"></city-header>
-    <city-search :cities="citys"></city-search>
+    <city-header :keyword="keyword" @clearKeyword="clearKeyword"></city-header>
+    <city-search :cities="citys" @clearKeyword="clearKeyword" :clearKeyword="keyword"></city-search>
     <city-list :hotCities="hotCities" :cities="citys" :letter="letter"></city-list>
     <city-alphabet :cities="citys" @change="handleLetter"></city-alphabet>
   </div>
@@ -45,6 +45,9 @@ export default {
     },
     handleLetter(letter) {
       this.letter = letter;
+    },
+    clearKeyword(keyword) {
+      this.keyword = keyword
     }
   }
 };

@@ -20,13 +20,12 @@
 import Bscroll from "better-scroll";
 export default {
   name: "CitySearch",
-  props: ["cities"],
+  props: ["cities", 'clearKeyword'],
   data() {
     return {
       keyword: "",
       searchList: [],
-      timer: null,
-      clearKeyword: this.$store.state.clearKeyword
+      timer: null
     };
   },
   computed: {
@@ -41,18 +40,23 @@ export default {
       }
       this.timer = setTimeout(() => {
         const list = [];
+        let keyword = this.keyword.toLowerCase()
         for (let i in this.cities) {
           this.cities[i].forEach(item => {
             if (
-              item.spell.indexOf(this.keyword) > -1 ||
-              item.name.indexOf(this.keyword) > -1
+              item.spell.indexOf(keyword) > -1 ||
+              item.name.indexOf(keyword) > -1
             ) {
               list.push(item);
             }
           });
           this.searchList = list;
         }
+        this.$emit("clearKeyword", this.keyword)
       }, 200);
+    },
+    clearKeyword() {
+      this.clearKeyword === '' ? this.keyword = '' :''
     }
   },
   mounted() {

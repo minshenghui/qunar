@@ -10,7 +10,7 @@ export default {
   props: ["keyword"],
   methods: {
     backPage() {
-      this.$router.push("/")
+      this.keyword ? this.$emit("clearKeyword", '') : this.$router.push("/")
     }
   }
 };
