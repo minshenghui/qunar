@@ -9,14 +9,18 @@
     </div>
     <router-link to="/city">
       <div class="header-select">
-        {{ this.$store.state.city }}<span class="iconfont arrow-icon">&#xe64a;</span>
+        {{ this.city }}<span class="iconfont arrow-icon">&#xe64a;</span>
       </div>
     </router-link>
   </div>
 </template>
 <script>
+import { mapState } from "vuex"
 export default {
-  name: "HomeHeader"
+  name: "HomeHeader",
+  computed: {
+    ...mapState(['city'])
+  }
 };
 </script>
 <style lang="stylus" scoped>
