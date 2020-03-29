@@ -1,14 +1,14 @@
 <template>
   <div class="recommend-content">
     <div class="recommend-title">热销推荐</div>
-    <div class="recommend-row border-bottom" v-for="item in list" :key="item.id">
+    <router-link tag="li" :to="'/detail/' + item.id" class="recommend-row border-bottom" v-for="item in list" :key="item.id">
       <img class="recommend-row-img" :src="item.imgUrl" />
       <div class="recommend-row-info">
         <p class="recommend-row-title">{{ item.title }}</p>
         <p class="recommend-row-desc">{{ item.desc }}</p>
         <button class="recommend-row-more">查看详细</button>
       </div>
-    </div>
+    </router-link>
   </div>
 </template>
 <script>

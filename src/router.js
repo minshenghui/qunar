@@ -7,6 +7,7 @@ import Router from 'vue-router';
 
 import City from './pages/city/City';
 import Home from './pages/home/Home';
+import Detail from './pages/detail/Detail';
 
 // 2.通过Vue的use方法注入Router
 Vue.use(Router)
@@ -30,6 +31,11 @@ const router = new Router({
             path: '/city',
             name: 'City',
             component: City
+        },
+        {
+            path: '/detail/:id',
+            name: 'Detail',
+            component: Detail
         }
     ]
 })
