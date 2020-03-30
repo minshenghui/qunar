@@ -12,6 +12,7 @@ module.exports = {
     config.resolve.alias
       .set('@', resolve('src'))
       .set('styles', resolve('src/assets/styles'))
+      .set('Common', resolve('src/pages/Common'))
   },
   runtimeCompiler: true
   // proxyTable: {

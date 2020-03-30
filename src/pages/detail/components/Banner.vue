@@ -1,20 +1,39 @@
 <template>
-  <div class="banner">
-    <img
-      class="banner-img"
-      src="//img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_600x330_f922b488.jpg"
-    >
-    <div class="banner-info">
-      <p class="banner-number">
-        <span class="iconfont icon-img">&#xe699;</span>13</p>
-      <p class="banner-title">故宫(AAAAA景区)</p>
+  <div>
+    <div class="banner">
+      <img
+        class="banner-img"
+        src="//img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_600x330_f922b488.jpg"
+        @click="handClickGallery"
+      />
+      <div class="banner-info">
+        <p class="banner-number">
+          <span class="iconfont icon-img">&#xe699;</span>13
+        </p>
+        <p class="banner-title">故宫(AAAAA景区)</p>
+      </div>
     </div>
+    <common-gallery  v-show="showGallery" @closeGallery="handClickGallery"></common-gallery>
   </div>
 </template>
 <script>
+import CommonGallery from "Common/gallery/Gallery";
 export default {
-  name: 'DetailBanner'
-}
+  name: "DetailBanner",
+  components: {
+    CommonGallery
+  },
+  data() {
+    return {
+      showGallery: false
+    }
+  },
+  methods: {
+    handClickGallery() {
+      this.showGallery = !this.showGallery
+    }
+  }
+};
 </script>
 <style lang="stylus" scoped>
 .banner
@@ -44,6 +63,6 @@ export default {
       background: linear-gradient(rgba(0, 0, 0, 0.46))
       text-align: center
       .icon-img
-        font-size: .24rem
-        margin-right: .1rem
+        font-size: 0.24rem
+        margin-right: 0.1rem
 </style>
