@@ -2,22 +2,10 @@
   <div class="gallery" @click="closeGallery">
     <div class="gallery-wrapper">
       <swiper class="gallery-swiper" :options="swiperOption">
-        <swiper-slide>
+        <swiper-slide v-for="item of galleryImg">
           <img
             class="gallery-img"
-            src="http://img1.qunarzz.com/wugc/p123/201211/19/a2045d091f02b25493835fbb.png_350x240_cf4cd08e.png"
-          />
-        </swiper-slide>
-        <swiper-slide>
-          <img
-            class="gallery-img"
-            src="http://img1.qunarzz.com/wugc/p180/201306/16/7f08e81624346b1693835fbb.jpg_350x240_b09a9503.jpg"
-          />
-        </swiper-slide>
-        <swiper-slide>
-          <img
-            class="gallery-img"
-            src="http://img1.qunarzz.com/sight/p0/1410/e3/73da8d3e19cdc41c1932d4fcd22ec792.water.jpg_350x240_af846382.jpg"
+            :src="item"
           />
         </swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
@@ -28,6 +16,7 @@
 <script>
 export default {
   name: "CommonGallery",
+  props: ["galleryImg"],
   data() {
     return {
       swiperOption: {

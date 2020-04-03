@@ -3,23 +3,24 @@
     <div class="banner">
       <img
         class="banner-img"
-        src="//img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_600x330_f922b488.jpg"
+        :src="bannerImg"
         @click="handClickGallery"
       />
       <div class="banner-info">
         <p class="banner-number">
-          <span class="iconfont icon-img">&#xe699;</span>13
+          <span class="iconfont icon-img">&#xe699;</span>{{ galleryImg.length }}
         </p>
-        <p class="banner-title">故宫(AAAAA景区)</p>
+        <p class="banner-title">{{ sightName }}</p>
       </div>
     </div>
-    <common-gallery  v-show="showGallery" @closeGallery="handClickGallery"></common-gallery>
+    <common-gallery  v-show="showGallery" @closeGallery="handClickGallery" :galleryImg="galleryImg"></common-gallery>
   </div>
 </template>
 <script>
 import CommonGallery from "Common/gallery/Gallery";
 export default {
   name: "DetailBanner",
+  props: ["bannerImg", "sightName", "galleryImg"],
   components: {
     CommonGallery
   },
@@ -31,6 +32,7 @@ export default {
   methods: {
     handClickGallery() {
       this.showGallery = !this.showGallery
+      console.log(this.galleryImg)
     }
   }
 };

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <detail-banner></detail-banner>
+    <detail-banner :bannerImg="bannerImg" :galleryImg="galleryImg" :sightName="sightName"></detail-banner>
     <detail-header></detail-header>
     <div class="detail-list">
       <detail-list :list="list"></detail-list>
@@ -8,9 +8,10 @@
   </div>
 </template>
 <script>
-import DetailBanner from "./components/Banner";
-import DetailHeader from "./components/Header";
-import DetailList from "./components/List";
+import DetailBanner from "./components/Banner"
+import DetailHeader from "./components/Header"
+import DetailList from "./components/List"
+import axios from "axios"
 export default {
   name: "Detail",
   components: {
@@ -20,25 +21,31 @@ export default {
   },
   data() {
     return {
-      list: [{
-        "title": "成人票",
-        "children": [{
-          "title": "成人三馆联票",
-          "children": [{
-            "title": "成人三馆联票 - 某一连锁店销售"
-          }]
-        },{
-          "title": "成人五馆联票"
-        }]
-      }, {
-        "title": "学生票"
-      }, {
-        "title": "儿童票"
-      }, {
-        "title": "特惠票"
+      list: [],
+      sightName: '',
+      bannerImg: '',
+      galleryImg: []
+    }
+  },
+  mounted() {
+    this.getDetail()
+  },
+  methods: {
+    getDetail() {
+      axios.get("/api/detail.json").then(
+        this.succGetDetail
+      )
+    },
+    succGetDetail(res) {
+      let data = res.data;
+      if(data.ret && data.data) {
+        this.list = data.data.categoryList
+        this.sightName = data.data.sightName
+        this.bannerImg = data.data.bannerImg
+        this.galleryImg = data.data.galleryImg
       }
-      ]
-    };
+      console.log(res)
+    }
   }
 };
 </script>
