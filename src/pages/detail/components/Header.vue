@@ -5,7 +5,6 @@
       <span class="iconfont detail-back-icon" @click="backHome">&#xe601;</span>
       <span class="header-title">景点详情</span>
     </div>
-    <div class="content"></div>
   </div>
 </template>
 <script>
@@ -17,7 +16,7 @@ export default {
       opacityStyle: {
         opacity: 1
       }
-    }
+    };
   },
   methods: {
     backHome() {
@@ -25,22 +24,22 @@ export default {
     },
     handleScroll() {
       let top = document.documentElement.scrollTop;
-      if(top > 60) {
+      if (top > 60) {
         let opacity = top / 140;
         this.opacityStyle = {
           opacity: opacity > 1 ? 1 : opacity
-        }
-        this.showHeader = true
+        };
+        this.showHeader = true;
       } else {
-        this.showHeader = false
+        this.showHeader = false;
       }
     }
   },
   activated() {
-    window.addEventListener('scroll', this.handleScroll)
+    window.addEventListener("scroll", this.handleScroll);
   },
   deactivated() {
-    window.removeEventListener('scroll', this.handleScroll)
+    window.removeEventListener("scroll", this.handleScroll);
   }
 };
 </script>
@@ -60,7 +59,8 @@ export default {
   background: rgba(0, 0, 0, 0.46)
 .detail-header
   position: fixed
-  width: 100%;
+  width: 100%
+  z-index: 99
   top: 0
   color: #fff
   text-align: center
@@ -75,6 +75,4 @@ export default {
   .header-title
     color: #fff
     font-size: 0.36rem
-.content
-  height: 15rem
 </style>
